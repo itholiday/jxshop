@@ -1,0 +1,60 @@
+<extend name="Public:base"/>
+<block name="title">权限修改</block>
+<block name="header">
+    <span class="action-span"><a href="{:U('index')}">权限列表</a></span>
+    <span class="action-span1"><a href="{:U('index/index')}">ECSHOP 管理中心</a></span>
+    <span id="search_id" class="action-span1"> - 修改权限 </span>
+</block>
+<block name="body">
+    <form action="" method="post" name="theForm" enctype="multipart/form-data">
+        <table width="100%" id="general-table">
+            <tr>
+                <td class="label">权限名称:</td>
+                <td>
+                    <input type='text' name='rule_name' maxlength="20" value='{$info.rule_name}' size='27' /> <font color="red">*</font>
+                </td>
+            </tr>
+            <tr>
+                <td class="label">模块名称:</td>
+                <td>
+                    <input type='text' name='module_name' maxlength="20" value='{$info.module_name}' size='27' /> <font color="red">*</font>
+                </td>
+            </tr>
+            <tr>
+                <td class="label">控制器名称:</td>
+                <td>
+                    <input type='text' name='controller_name' maxlength="20" value='{$info.controller_name}' size='27' /> <font color="red">*</font>
+                </td>
+            </tr>
+            <tr>
+                <td class="label">方法名称:</td>
+                <td>
+                    <input type='text' name='action_name' maxlength="20" value='{$info.action_name}' size='27' /> <font color="red">*</font>
+                </td>
+            </tr>
+            <tr>
+                <td class="label">上级分类:</td>
+                <td>
+                    <select name="parent_id">
+                        <option value="0">|--顶级分类</option>
+                        <foreach name="cate" item="vo">
+                            <option value="{$vo.id}" <eq name="info.id" value="$vo.id">selected="selected"</eq> >|{$vo.level|str_repeat='--',###}{$vo.rule_name} </option>
+                        </foreach>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td class="label">是否显示:</td>
+                <td>
+                    <input type="radio" name="is_show" value="1" <eq name="info.is_show" value="1">checked="true"</eq> /> 是
+                    <input type="radio" name="is_show" value="0"  <eq name="info.is_show" value="0">checked="true"</eq>/> 否
+                </td>
+            </tr>
+        </table>
+        <div class="button-div">
+            <input type="submit" value=" 确定 " />
+            <input type="reset" value=" 重置 " />
+        </div>
+        <input type="hidden" name="id" value="{$Think.get.id}">
+    </form>
+</block>

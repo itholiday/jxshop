@@ -1,0 +1,37 @@
+<extend name="Public:base" />
+<block name="header">
+    <span class="action-span"><a href="{:U('add')}">添加角色</a></span>
+    <span class="action-span1"><a href="{:U('index')}">ECSHOP 管理中心</a></span>
+    <span id="search_id" class="action-span1"> - 角色列表 </span>
+    <div style="clear:both"></div>
+</block>
+<block name="body">
+<form method="post" action="" name="listForm">
+    <div class="list-div" id="listDiv">
+        <table width="100%" cellspacing="1" cellpadding="2" id="list-table">
+            <tr>
+                <th>角色编号</th>
+                <th>角色名称</th>
+                <th>操作</th>
+            </tr>
+            <foreach name="data" item="vo">
+            <tr align="center" class="0">
+                <td align="left">
+                    {$vo.id}
+                </td>
+                <td width="35%">{$vo.role_name}</td>
+                
+                <td width="30%" align="center">
+                    <gt name="vo['id']" value="1">
+                <a href="{:U("disfetch",'id='.$vo['id'])}" title="权限" onclick="">权限</a>|
+                <a href="{:U("edit",'id='.$vo['id'])}" title="编辑" onclick="">编辑</a> |
+                <a href="{:U('del','id='.$vo['id'])}" title="移除" onclick="">移除</a>
+                        </gt>
+                </td>
+            </tr>
+            </foreach>
+        </table>
+    </div>
+</form>
+    {$pagestring}
+</block>

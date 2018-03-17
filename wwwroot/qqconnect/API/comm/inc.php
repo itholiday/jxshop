@@ -1,0 +1,2 @@
+<?php die('forbidden'); ?>
+{"appid":"1106245922","appkey":"QssOESobyDnZsLXz","callback":"http://www.jxshop.com/qqconnect/example/oauth/callback.php","scope":"get_user_info","errorReport":true,"storageType":"file","host":"localhost","user":"root","password":"root","database":"test"}

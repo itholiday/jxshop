@@ -1,0 +1,25 @@
+<extend name="Public:base"/>
+    <block name="title">角色名称修改</block>
+    <block name="header">
+    <span class="action-span"><a href="{:U('index')}">角色列表</a></span>
+    <span class="action-span1"><a href="{:U('index/index')}">ECSHOP 管理中心</a></span>
+    <span id="search_id" class="action-span1"> - 修改角色 </span>
+    </block>
+    <block name="body">
+    <form action="" method="post" name="theForm" enctype="multipart/form-data">
+        <table width="100%" id="general-table">
+            <tr>
+                <td class="label">角色名称:</td>
+                <td>
+                    <input type='text' name='role_name' maxlength="20" value="{$role.role_name}" size='27' /> <font color="red">*</font>
+                </td>
+            </tr>
+
+        </table>
+        <div class="button-div">
+            <input type="submit" value=" 确定 " />
+            <input type="reset" value=" 重置 " />
+        </div>
+    </form>
+        <input type="hidden" name="id" value="{$Think.get.id}">
+    </block>

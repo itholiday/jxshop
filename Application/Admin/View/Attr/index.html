@@ -1,0 +1,42 @@
+<extend name="Public:base" />
+<block name="header">
+    <span class="action-span"><a href="{:U('add')}">添加属性</a></span>
+    <span class="action-span1"><a href="{:U('index')}">ECSHOP 管理中心</a></span>
+    <span id="search_id" class="action-span1"> - 属性列表 </span>
+    <div style="clear:both"></div>
+</block>
+<block name="body">
+<form method="post" action="" name="listForm">
+    <div class="list-div" id="listDiv">
+        <table width="100%" cellspacing="1" cellpadding="2" id="list-table">
+            <tr>
+                <th>属性编号</th>
+                <th>属性名称</th>
+                <th>所属类型</th>
+                <th>属性类型</th>
+                <th>属性值录入类型</th>
+                <th>属性值</th>
+            </tr>
+            <foreach name="data" item="vo">
+            <tr align="center" class="0">
+                <td align="left">
+                    {$vo.id}
+                </td>
+                <td>{$vo.attr_name}</td>
+                <foreach name="types" item="vo1">
+                    <eq name="vo1.id" value="$vo.type_id"><td>{$vo1.type_name}</td></eq>
+                </foreach>
+                <td><eq name="vo.attr_type" value="1">唯一<else/>单选</eq></td>
+                <td><eq name="vo.attr_input_type" value="1">手工录入<else/>列表显示</eq></td>
+                <td>{$vo.attr_value}</td>
+                <td align="center">
+                <a href="{:U("edit",'id='.$vo['id'])}" title="编辑" onclick="">编辑</a> |
+                <a href="{:U('del','id='.$vo['id'])}" title="移除" onclick="">移除</a>
+                </td>
+            </tr>
+            </foreach>
+        </table>
+    </div>
+</form>
+    {$pagestring}
+</block>

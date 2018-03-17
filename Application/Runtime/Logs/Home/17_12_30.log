@@ -1,0 +1,20 @@
+[ 2017-12-30T21:01:53+08:00 ] 127.0.0.1 /User/login.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001062s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001828s ]
+SQL: SELECT * FROM `jx_category`  [ RunTime:0.0038s ]
+
+[ 2017-12-30T21:02:07+08:00 ] 127.0.0.1 /User/login.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001049s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001839s ]
+SQL: SELECT * FROM `jx_category`  [ RunTime:0.0035s ]
+NOTIC: [8] Undefined index: c C:\Users\ithol\Desktop\phpcode\myStudy\jxshop\Application\Common\Common\function.php 第 100 行.
+NOTIC: [8] Undefined index: a C:\Users\ithol\Desktop\phpcode\myStudy\jxshop\Application\Common\Common\function.php 第 103 行.
+NOTIC: [8] Undefined index: key C:\Users\ithol\Desktop\phpcode\myStudy\jxshop\Application\Common\Common\function.php 第 106 行.
+NOTIC: [8] Undefined index: url C:\Users\ithol\Desktop\phpcode\myStudy\jxshop\Application\Common\Common\function.php 第 109 行.
+NOTIC: [2] Invalid argument supplied for foreach() C:\Users\ithol\Desktop\phpcode\myStudy\jxshop\Application\Home\Model\CartModel.class.php 第 52 行.
+
+[ 2017-12-30T21:02:27+08:00 ] 127.0.0.1 /order/check
+ERR: Think\Controller:checkLogin方法不存在！
+

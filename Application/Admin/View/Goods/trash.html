@@ -1,0 +1,52 @@
+<extend name="Public:base" />
+<block name="header">
+    <span class="action-span">
+        <a href="{:U('index')}">商品列表</a>
+    </span>
+    <span class="action-span1"><a href="{:U('admin/index/index')}">ECSHOP 管理中心</a></span>
+    <span id="search_id" class="action-span1"> - 商品回收站 </span>
+    <div style="clear:both"></div>
+</block>
+<block name="body">
+<!-- 商品搜索 -->
+<div class="form-div">
+    <form action="" name="searchForm">
+        <img src="__PUBLIC_ADMIN__/Images/icon_search.gif" width="26" height="22" border="0" alt="search" />
+        <!-- 关键字 -->
+        关键字 <input type="text" name="keyword" size="15" />
+        <input type="submit" value=" 搜索 " class="button" />
+    </form>
+</div>
+
+<!-- 商品列表 -->
+<form method="post" action="" name="listForm">
+    <div class="list-div" id="listDiv">
+        <table cellpadding="3" cellspacing="1">
+            <tr>
+                <th><input type="checkbox" />编号</th>
+                <th>商品名称</th>
+                <th>货号</th>
+                <th>价格</th>
+                <th>操作</th>
+            </tr>
+            <foreach name="data" item="val">
+            <tr>
+                <td><input type="checkbox" name="checkboxes[]" value="{$val.id}" />{$val.id}</td>
+                <td align="center">{$val.goods_name}</td>
+                <td align="center">{$val.goods_sn}</td>
+                <td align="center">{$val.shop_price}</td>
+                <td align="center"><a href="{:U('recover','id='.$val['id'])}">还原</a> | <a href="{:U('del','id='.$val['id'])}">删除</a></td>
+            </tr>
+            </foreach>
+            <!-- 分页 -->
+            <tr>
+                <td align="right" nowrap="true" colspan="6">
+                    <div id="turn-page">
+                        {$pagestring}
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
+</form>
+</block>

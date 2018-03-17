@@ -1,0 +1,37 @@
+<extend name="Public:base" />
+<block name="header">
+    <span class="action-span"><a href="{:U('add')}">添加管理员</a></span>
+    <span class="action-span1"><a href="{:U('index')}">ECSHOP 管理中心</a></span>
+    <span id="search_id" class="action-span1"> - 管理员列表 </span>
+    <div style="clear:both"></div>
+</block>
+<block name="body">
+<form method="post" action="" name="listForm">
+    <div class="list-div" id="listDiv">
+        <table width="100%" cellspacing="1" cellpadding="2" id="list-table">
+            <tr>
+                <th>编号</th>
+                <th>用户名</th>
+                <th>角色</th>
+                <th>操作</th>
+            </tr>
+            <foreach name="admins" item="vo">
+            <tr align="center" class="0">
+                <td align="center">
+                    {$vo.id}
+                </td>
+                <td>{$vo.username}</td>
+                <td>{$vo.role_name}</td>
+                <td align="center">
+                    <gt name="vo['id']" value="1">
+                <a href="{:U("edit",'id='.$vo['id'])}">编辑</a> |
+                <a href="{:U('del','id='.$vo['id'])}" title="删除" onclick="">删除</a>
+                        </gt>
+                </td>
+            </tr>
+            </foreach>
+        </table>
+    </div>
+</form>
+    {$pagestring}
+</block>
